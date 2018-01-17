@@ -25,7 +25,10 @@
     "in2code/falsftp": "self.version",
     "typo3-ter/fal_sftp": "self.version",
     "typo3-ter/fal-sftp": "self.version",
-    "typo3-ter/falsftp": "self.version"
+    "typo3-ter/falsftp": "self.version",
+    "fal_sftp": "self.version",
+    "fal-sftp": "self.version",
+    "falsftp": "self.version"
   },
   "suggest": {
     "phpseclib/phpseclib": "You need either this package or the ssh2 extension for this driver to work",
