@@ -26,8 +26,6 @@
     "typo3-ter/fal_sftp": "self.version",
     "typo3-ter/fal-sftp": "self.version",
     "typo3-ter/falsftp": "self.version",
-    "fal_sftp": "self.version",
-    "fal-sftp": "self.version",
     "falsftp": "self.version"
   },
   "suggest": {
