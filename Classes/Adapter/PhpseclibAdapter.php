@@ -277,16 +277,15 @@ class PhpseclibAdapter extends AbstractAdapter
         switch ($hashAlgorithm) {
             case 'sha1':
                 $return = $this->ssh->exec('shasum -a1 "' . $identifier . '" || sha1sum "' . $identifier . '"');
-                break;
-            case 'md5':
-                $return = $this->ssh->exec('md5 "' . $identifier . '" || md5sum "' . $identifier . '"');
-                break;
-            default:
-                $return = '';
-        }
 
-        // string can contain "bash: shasum: command not found" - we only want to keep the returned hash at the end of the string
-        return preg_replace('/.*([a-zA-Z0-9]+)$/Us', '$1', $return);
+                // If the first command is not available, the returned value contains multiple lines. The last one contains the result, we want.
+                $parts = explode(LF, $return);
+                return trim(array_pop($parts));
+            case 'md5':
+                return $this->ssh->exec('md5 "' . $identifier . '"');
+            default:
+        }
+        return '';
     }
 
     /**
