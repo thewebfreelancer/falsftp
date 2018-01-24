@@ -286,7 +286,7 @@ class PhpseclibAdapter extends AbstractAdapter
         }
 
         // string can contain "bash: shasum: command not found" - we only want to keep the returned hash at the end of the string
-        return preg_replace('/.*([a-zA-Z0-9]+$)/', '$1', $return);
+        return preg_replace('/.*([a-zA-Z0-9]+)$/Us', '$1', $return);
     }
 
     /**
