@@ -276,9 +276,9 @@ class PhpseclibAdapter extends AbstractAdapter
     {
         switch ($hashAlgorithm) {
             case 'sha1':
-                return $this->ssh->exec('shasum -a1 "' . $identifier . '"');
+                return $this->ssh->exec('shasum -a1 "' . $identifier . '" || sha1sum "' . $identifier . '"');
             case 'md5':
-                return $this->ssh->exec('md5 "' . $identifier . '"');
+                return $this->ssh->exec('md5 "' . $identifier . '" || md5sum "' . $identifier . '"');
             default:
         }
         return '';
